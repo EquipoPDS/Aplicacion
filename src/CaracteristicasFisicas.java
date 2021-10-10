@@ -231,7 +231,12 @@ public class CaracteristicasFisicas extends javax.swing.JFrame {
         bg.add(generoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         enfermedadCmb.setFont(new java.awt.Font("Poppins Light", 0, 12)); // NOI18N
-        enfermedadCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Obesidad", "Azúcar alto", "Colesterol alto", "Anemia", "Problemas digestivos" }));
+        enfermedadCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Obesidad", "Diabetes", "Colesterol alto", "Anemia", "Problemas digestivos", "Ninguna" }));
+        enfermedadCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enfermedadCmbActionPerformed(evt);
+            }
+        });
         bg.add(enfermedadCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -295,9 +300,14 @@ public class CaracteristicasFisicas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "La altura no es correcta(Solo puede ingresar números)");
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Su IMC es: " + String.format("%.2f", imc), "CaracteristicasFisicas", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            Enfermedad0 a = new Enfermedad0();
-            a.setVisible(true);
+            
+        }
+        if("Ninguna".equals((String) enfermedadCmb.getSelectedItem())){
+            Menu m = new Menu();
+            m.setVisible(true);
             this.setVisible(false);
+        }else if("Diabetes".equals((String) enfermedadCmb.getSelectedItem())){
+            
         }
     }//GEN-LAST:event_ingresarTxtMouseClicked
 
@@ -330,6 +340,10 @@ public class CaracteristicasFisicas extends javax.swing.JFrame {
             alturaTxt.setForeground(Color.gray);
         }
     }//GEN-LAST:event_pesoTxtMousePressed
+
+    private void enfermedadCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enfermedadCmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enfermedadCmbActionPerformed
   
     public static boolean validarNumeros(String datos){
         return datos.matches("[0-9]*");
