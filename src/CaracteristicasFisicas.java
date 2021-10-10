@@ -368,7 +368,7 @@ public class CaracteristicasFisicas extends javax.swing.JFrame {
                 new DatosPersonales().setVisible(true);
             }
         });
-        //Cambio
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
